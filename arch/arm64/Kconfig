@@ -316,6 +316,12 @@ config ARM64_ERRATUM_826319
 
 	  If unsure, say Y.
 
+config THERMAL_SWITCH
+    default n
+	bool "Support themral config switch"
+	help
+      Support themral config switch. 
+
 config ARM64_ERRATUM_827319
 	bool "Cortex-A53: 827319: Data cache clean instructions might cause overlapping transactions to the interconnect"
 	default y
@@ -439,6 +445,18 @@ config ARM64_ERRATUM_845719
 	  the kernel if an affected CPU is detected.
 
 	  If unsure, say Y.
+
+config SPEAKER_EXT_PA
+    default y
+    bool "Speaker external PA"
+    help
+        Support for external PA.
+
+config SPEAKER_EXT_PA_AW8738
+    default y
+    bool "Speaker external PA AW8738"
+    help
+        Support for the AW8738.
 
 config ARM64_ERRATUM_843419
 	bool "Cortex-A53: 843419: A load or store might access an incorrect address"
@@ -1205,6 +1223,11 @@ config BUILD_ARM64_KERNEL_COMPRESSION_GZIP
 	  compression with concatenated dtb.
 	  gzip is based on the DEFLATE
 	  algorithm.
+
+config YSL
+	bool "Based on Platform msm8917"
+	def_bool ARCH_MSM8917
+#end zhanghua 20170916
 
 config BUILD_ARM64_UNCOMPRESSED_KERNEL
 	bool "Build uncompressed kernel image"
